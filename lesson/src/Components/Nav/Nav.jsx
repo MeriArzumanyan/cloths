@@ -1,6 +1,8 @@
 import st from "./Nav.module.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 export const Nav = () => {
   return (
@@ -11,6 +13,11 @@ export const Nav = () => {
           alt=""
         />
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/cards">
+        <FaCartShopping />
+
+        </NavLink>
+
         <NavLink to="/products">Products</NavLink>
       </div>
     </nav>
