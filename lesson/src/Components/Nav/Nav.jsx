@@ -3,22 +3,27 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 
-
-export const Nav = () => {
+export const Nav = ({ add }) => {
   return (
     <nav>
       <div className={st.nav}>
-        <img
-          src="https://sun6-23.userapi.com/s/v1/ig1/5k7It3m807ufxL8wimSDnI7i3aXJSv37GgfoXYZ5RNYcc9qcYlNJcNValy2ffGi-H76xyPVQ.jpg?size=1587x1587&quality=96&crop=5,0,1587,1587&ava=1"
-          alt=""
-        />
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/cards">
-        <FaCartShopping />
-
+        <NavLink to="/">
+          <img
+            src="https://sun6-23.userapi.com/s/v1/ig1/5k7It3m807ufxL8wimSDnI7i3aXJSv37GgfoXYZ5RNYcc9qcYlNJcNValy2ffGi-H76xyPVQ.jpg?size=1587x1587&quality=96&crop=5,0,1587,1587&ava=1"
+            alt=""
+          />
         </NavLink>
+        <div className={st.rightPart}>
+          <NavLink to="/products">Products</NavLink>
 
-        <NavLink to="/products">Products</NavLink>
+          {add.length ? (
+            <NavLink to="/cards">
+              <FaCartShopping />
+            </NavLink>
+          ) : (
+            <FaCartShopping />
+          )}
+        </div>
       </div>
     </nav>
   );

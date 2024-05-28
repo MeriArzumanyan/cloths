@@ -1,0 +1,81 @@
+.card {
+  
+  padding-top: 40px;
+}
+.forOrder{
+  display: flex;
+  justify-content: space-around;
+}
+.forItems {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.forItems img {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+}
+.forItems .item {
+  background-color: white;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  padding: 10px;
+  border-radius: 10px;
+ 
+}
+.forRemoving{
+  display: flex;
+  justify-content: end;
+  
+}
+.forRemoving button{
+  width: 25px;
+  height: 25px;
+}
+.minus,.plus{
+    width: 20px;
+    height: 20px;
+}
+.forItems .item h2{
+    font-size: 20px;
+    padding: 10px 0 10px 0;
+}
+.forItems .details{
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+.details{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.details span{
+    margin: 0 5px 0 5px;
+}
+.details .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details .total{
+    font-weight: 800;
+    font-size: 18px;
+} 
+.card h4{
+font-size: 30px;
+font-family: Arial, Helvetica, sans-serif;
+color: brown;
+}
+.card h6{
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+.forInputs{
+  width: 40%;
+}

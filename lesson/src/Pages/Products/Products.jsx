@@ -12,7 +12,7 @@ export const Products = (props) => {
   return (
     <div className={st.products} key={props.data.id}>
       <div className={st.prodCard}>
-        <NavLink to={`/products/${props.data.id}`}>
+        <NavLink to={`/products/${props.data.id} `}>
           <img src={props.data.image} alt="" />
         </NavLink>
 
@@ -22,7 +22,7 @@ export const Products = (props) => {
             : `${props.data.title.slice(0, hide)}...`}
         </h2>
         <h3>$ {props.data.price}</h3>
-        <button onClick={() => addItem(props.data)}>Add to card</button>
+        <button onClick={() => addItem(props.data) }>Add to card</button>
       </div>
     </div>
   );

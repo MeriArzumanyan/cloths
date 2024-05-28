@@ -2,10 +2,10 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import st from "./Loyout.module.css";
 import { Nav } from "../Nav/Nav";
-const Loyout = () => {
+const Loyout = ({add}) => {
   return (
     <div className={st.loyout}>
-      <Nav />
+      <Nav add={add}/>
       <Outlet />
     </div>
   );

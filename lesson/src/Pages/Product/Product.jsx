@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
 import st from "./Product.module.css";
 import React from "react";
-
+import { useState } from "react";
 export const Product = (props) => {
+  function addItem(item){
+    props.addToCard(item)
+  }
   const param = useParams();
 
   let a = props.data.filter((el) => el.id === +param.id);
@@ -27,7 +30,7 @@ export const Product = (props) => {
                 corporis explicabo? Ullam, non nulla rem omnis dolorum aliquid
                 doloribus voluptatum laborum, soluta iste est ex praesentium ad.
               </p>
-              <button>Add to card</button>
+              <button onClick={() => addItem(props.data)}>Add to card</button>
             </div>
           </div>
         );
