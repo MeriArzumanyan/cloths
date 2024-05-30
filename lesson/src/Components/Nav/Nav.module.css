@@ -1,29 +1,61 @@
+nav {
+  position: sticky;
+  top: -1px;
+  z-index: 100;
+  background-color: rgb(187, 213, 214);
+  box-shadow:  15px  grey ;
+  border-bottom: 2px solid rgb(131, 169, 170);
+  padding-top: 5px;
+  box-shadow: 0px 2px rgb(131, 169, 170);
+  
+}
 .nav img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
 }
-.nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom:  2px solid rgb(2, 51, 53);
-    padding-bottom: 10px;
-    
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 2px solid rgb(2, 51, 53); */
+  padding-bottom: 10px;
 }
-.nav a{
-    font-size: 25px;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    font-weight: 500;
+.nav a {
+  font-size: 25px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-weight: 500;
 }
-.nav a:visited{
-  color:black
-
+.nav a:visited {
+  color: black;
 }
-.nav .rightPart{
+.nav .rightPart {
   display: flex;
   align-items: center;
   column-gap: 30px;
+}
+.navPosition {
+  position: relative;
+}
+.position {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: -13px;
+  bottom: 15px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(138, 204, 179);
+  border-radius: 1000%;
+}
+.navPosition span {
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  top: 1px;
+  font-size: 10px;
+  right: 4px;
+  bottom: 26px;
+  transform: translate(0, -50%);
 }

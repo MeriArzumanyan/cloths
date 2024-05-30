@@ -1,4 +1,4 @@
-import  "./Slider.css"
+import "./Slider.css";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -22,7 +22,7 @@ const forSlider = [
   "https://i.ytimg.com/vi/dlnEcsHtPeM/maxresdefault.jpg",
   "https://gas-kvas.com/grafic/uploads/posts/2024-01/gas-kvas-com-p-zara-logotip-na-prozrachnom-fone-14.jpg",
 ];
- export const Slide=()=> {
+export const Slide = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -31,25 +31,19 @@ const forSlider = [
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
-    cssEase: "linear"
+    cssEase: "linear",
   };
   return (
-    
-    
     <div className="slider-container">
       <Slider {...settings}>
-        {
-          forSlider.map((el,index)=>{
-            return (
-              <div className="images" key={index}>
-                <img src={el} alt="" />
-              </div>
-              
-            )
-          })
-        }
+        {forSlider.map((el, index) => {
+          return (
+            <div className="images" key={index}>
+              <img src={el} alt="" />
+            </div>
+          );
+        })}
       </Slider>
     </div>
-    
   );
-}
+};

@@ -6,7 +6,7 @@ import Loyout from "./Components/Loyout/Loyout";
 import { Home } from "./Pages/Home/Home";
 import { Product } from "./Pages/Product/Product";
 import { Card } from "./Pages/Card/Card";
-import { createPortal } from "react-dom";
+import { Modal } from "./Components/Modal/Modal";
 function App(props) {
   const [add, setAdd] = useState([]);
   ///////////for adding items to cart//////////////
@@ -44,7 +44,13 @@ function App(props) {
         return item.id !== el.id;
       });
     });
+    // removePosition();
   }
+
+  function removePosition() {
+    setPositionCount(positionCount - 1);
+  }
+  
   ////////////for setting counter//////////////
 
   function changeCount(id, newCount) {
@@ -101,61 +107,77 @@ function App(props) {
   function modalOpen() {
     setOpen(true);
   }
-  function modalClose(){
-    setOpen(false)
+  function modalClose() {
+    setOpen(false);
   }
 
   //////
-  function Modal({ children }) {
-    return (
-      <div>{createPortal(children, document.getElementById("portal"))}</div>
-    );
-  }
 
-  const [orderData,setOrderData]=useState([])
+  const [orderData, setOrderData] = useState([]);
   ////////
   function orderFormApp(infoData) {
-    setOrderData((prev)=>{
-      return [{...infoData}]
-    })
+    setOrderData((prev) => {
+      return [{ ...infoData }];
+    });
   }
   ////
-  
-
+  const [positionCount, setPositionCount] = useState(0);
+  function increaseCount() {
+    setPositionCount(positionCount + 1);
+  }
   return (
     <div className="container">
       {open && (
         <Modal>
           <div className="modal">
             <div className="modalContent">
-              {
-                orderData.map((el)=>{
-                  return <div className="forOrderData">
-                    <h1>{el.name}</h1>
-                    <h2>{total}</h2>
+              {orderData.map((el) => {
+                return (
+                  <div className="forOrderData">
+                    <h1>Name: {el.name}</h1>
+                    <h2>Total: ${total}</h2>
                   </div>
-                })
-              }
+                );
+              })}
               <button onClick={modalClose}>X</button>
             </div>
-            
           </div>
         </Modal>
       )}
-
       <Routes>
-        <Route path="/" element={<Loyout add={add} />}>
+        <Route
+          path="/"
+          element={
+            <Loyout
+              add={add}
+              positionCount={positionCount}
+              increaseCount={increaseCount}
+            />
+          }
+        >
           <Route index element={<Home />} />
           <Route
             path="/products"
             element={
-              <Section data={props.data} addToCard={addToCard} add={add} />
+              <Section
+                data={props.data}
+                addToCard={addToCard}
+                add={add}
+                increaseCount={increaseCount}
+                positionCount={positionCount}
+              />
             }
           />
           <Route
             path="/products/:id"
             element={
-              <Product data={props.data} add={add} addToCard={addToCard} />
+              <Product
+                data={props.data}
+                add={add}
+                addToCard={addToCard}
+                increaseCount={increaseCount}
+                positionCount={positionCount}
+              />
             }
           />
           <Route
@@ -169,6 +191,11 @@ function App(props) {
                 total={total}
                 modalOpen={modalOpen}
                 orderFormApp={orderFormApp}
+                removePosition={removePosition}
+                increaseCount={increaseCount}
+                positionCount={positionCount}
+
+                setPositionCount={setPositionCount}
               />
             }
           />

@@ -1,22 +1,23 @@
 import { useParams } from "react-router-dom";
 import st from "./Product.module.css";
 import React from "react";
+import { Button } from "../../Components/Button/Button";
 import { useState } from "react";
 export const Product = (props) => {
-  function addItem(item){
-    props.addToCard(item)
-  }
   const param = useParams();
-
   let a = props.data.filter((el) => el.id === +param.id);
-  // console.log(a);
-
+  function addItemToCard(item) {
+    props.addToCard(item);
+    props.increaseCount();
+  }
   return (
     <div>
       {a.map((elem) => {
         return (
           <div className={st.allInfo} key={elem.id}>
-            <img src={elem.image} alt="" />
+            <div className={st.forImage}>
+              <img src={elem.image} alt="" />
+            </div>
             <div className={st.info}>
               <h2>{elem.title}</h2>
               <h3>$ {elem.price}</h3>
@@ -30,7 +31,7 @@ export const Product = (props) => {
                 corporis explicabo? Ullam, non nulla rem omnis dolorum aliquid
                 doloribus voluptatum laborum, soluta iste est ex praesentium ad.
               </p>
-              <button onClick={() => addItem(props.data)}>Add to card</button>
+              <Button onClick={() => addItemToCard(elem)}></Button>
             </div>
           </div>
         );

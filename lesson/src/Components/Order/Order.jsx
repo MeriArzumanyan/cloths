@@ -18,8 +18,8 @@ const regions = [
 ];
 export const Order = ({ modalOpen, orderFormApp }) => {
   const orderForm = (values) => {
-    orderFormApp(values)
-    modalOpen()
+    orderFormApp(values);
+    modalOpen();
   };
   const validateOrder = yup.object().shape({
     name: yup
@@ -43,6 +43,10 @@ export const Order = ({ modalOpen, orderFormApp }) => {
       .string()
       .required("The field can't be empty")
       .matches(/[A-Z]{1}[a-z]/, "The first letter must be uppercase"),
+    address: yup
+      .string()
+      .required("The field can't be empty")
+      .matches(/[A-Z]{1}[a-z]/, "The first letter must be uppercase"),
   });
   return (
     <Formik
@@ -53,6 +57,7 @@ export const Order = ({ modalOpen, orderFormApp }) => {
         email: "",
         region: "",
         city: "",
+        address: "",
       }}
       onSubmit={(values) => orderForm(values)}
       validationSchema={validateOrder}
@@ -81,9 +86,10 @@ export const Order = ({ modalOpen, orderFormApp }) => {
             })}
           </Field>
           <ErrorMessage name="region" component={"span"} />
-
           <Field name="city" placeholder="City" />
           <ErrorMessage name="city" component={"span"} />
+          <Field name="address" placeholder="Address" />
+          <ErrorMessage name="address" component={"span"} />
           <button type="submit">Submit</button>
         </Form>
       )}

@@ -6,7 +6,7 @@ export const Section = (props) => {
     <section>
       <div className={st.section}>
         {props.data.map((el) => {
-          return <Products data={el} key={el.id} addToCard={props.addToCard}/>;
+          return <Products data={el} key={el.id} addToCard={props.addToCard} increaseCount={props.increaseCount} positionCount={props.positionCount} />;
         })}
       </div>
     </section>

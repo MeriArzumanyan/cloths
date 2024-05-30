@@ -2,8 +2,9 @@ import st from "./Nav.module.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import { FaCircle } from "react-icons/fa";
 
-export const Nav = ({ add }) => {
+export const Nav = ({ add,positionCount }) => {
   return (
     <nav>
       <div className={st.nav}>
@@ -18,7 +19,11 @@ export const Nav = ({ add }) => {
 
           {add.length ? (
             <NavLink to="/cards">
-              <FaCartShopping />
+              <div className={st.navPosition}>
+                <FaCircle className={st.position} />
+                <span >{positionCount}</span>
+                <FaCartShopping />
+              </div>
             </NavLink>
           ) : (
             <FaCartShopping />
