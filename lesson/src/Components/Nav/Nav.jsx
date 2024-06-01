@@ -3,8 +3,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaCircle } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 
-export const Nav = ({ add,positionCount }) => {
+
+// const user = "Ashot";
+export const Nav = ({ add, positionCount }) => {
   return (
     <nav>
       <div className={st.nav}>
@@ -21,13 +24,17 @@ export const Nav = ({ add,positionCount }) => {
             <NavLink to="/cards">
               <div className={st.navPosition}>
                 <FaCircle className={st.position} />
-                <span >{positionCount}</span>
+                <span>{positionCount}</span>
                 <FaCartShopping />
               </div>
             </NavLink>
           ) : (
             <FaCartShopping />
           )}
+
+          <NavLink to={"./login"}>
+          <FaUser/>
+          </NavLink>
         </div>
       </div>
     </nav>

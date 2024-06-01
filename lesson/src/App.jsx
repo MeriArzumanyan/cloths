@@ -7,6 +7,10 @@ import { Home } from "./Pages/Home/Home";
 import { Product } from "./Pages/Product/Product";
 import { Card } from "./Pages/Card/Card";
 import { Modal } from "./Components/Modal/Modal";
+import { Registration } from "./Pages/Registration/Registration";
+import { LogIn } from "./Pages/LogIn/LogIn";
+import { Profile } from "./Pages/Profile/Profile";
+import { Admin } from "./Pages/Admin/Admin";
 function App(props) {
   const [add, setAdd] = useState([]);
   ///////////for adding items to cart//////////////
@@ -50,9 +54,32 @@ function App(props) {
   function removePosition() {
     setPositionCount(positionCount - 1);
   }
-  
+  //////////////new user//////
+  function createNewUser(newUser) {
+    setUsers((prev) => {
+      return [...prev, newUser];
+    });
+  }
   ////////////for setting counter//////////////
-
+  const [users, setUsers] = useState([
+    {
+      id: 1,
+      name: "Ashot",
+      login: "Ashot",
+      password: "Ab123456$",
+      role: "admin",
+    },
+    { id: 2, name: "Ani", login: "Ani", password: "Ab123456$", role: "user" },
+    {
+      id: 3,
+      name: "Davit",
+      login: "Davit",
+      password: "Ab123456$",
+      role: "user",
+    },
+    { id: 4, name: "Nare", login: "Nare", password: "Ab123456$", role: "user" },
+  ]);
+  console.log(users);
   function changeCount(id, newCount) {
     setAdd((prev) =>
       prev.map((el) => {
@@ -194,11 +221,14 @@ function App(props) {
                 removePosition={removePosition}
                 increaseCount={increaseCount}
                 positionCount={positionCount}
-
                 setPositionCount={setPositionCount}
               />
             }
           />
+          <Route path="/registration" element={<Registration createNewUser={createNewUser}/>} />
+          <Route path="/login" element={<LogIn users={users} />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/admin" element={<Admin />} />
         </Route>
       </Routes>
     </div>

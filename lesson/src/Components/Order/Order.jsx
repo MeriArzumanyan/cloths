@@ -49,50 +49,52 @@ export const Order = ({ modalOpen, orderFormApp }) => {
       .matches(/[A-Z]{1}[a-z]/, "The first letter must be uppercase"),
   });
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        lastname: "",
-        phone: "",
-        email: "",
-        region: "",
-        city: "",
-        address: "",
-      }}
-      onSubmit={(values) => orderForm(values)}
-      validationSchema={validateOrder}
-    >
-      {() => (
-        <Form>
-          <Field name="name" placeholder="Name" />
-          <ErrorMessage name="name" component={"span"} />
-          <Field name="lastname" placeholder="Lastname" />
-          <ErrorMessage name="lastname" component={"span"} />
-          <Field name="phone" placeholder="Phone" />
-          <ErrorMessage name="phone" component={"span"} />
-          <Field name="email" placeholder="Email" />
-          <ErrorMessage name="email" component={"span"} />
-          <Field name="region" as="select">
-            {regions.map((el, index) => {
-              return (
-                <option
-                  key={index}
-                  value={index === 0 ? "" : el}
-                  hidden={index === 0}
-                >
-                  {el}
-                </option>
-              );
-            })}
-          </Field>
-          <ErrorMessage name="region" component={"span"} />
-          <Field name="city" placeholder="City" />
-          <ErrorMessage name="city" component={"span"} />
-          <Field name="address" placeholder="Address" />
-          <ErrorMessage name="address" component={"span"} />
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    </Formik>
+    <div className={st.orderPage}>
+      <Formik
+        initialValues={{
+          name: "",
+          lastname: "",
+          phone: "",
+          email: "",
+          region: "",
+          city: "",
+          address: "",
+        }}
+        onSubmit={(values) => orderForm(values)}
+        validationSchema={validateOrder}
+      >
+        {() => (
+          <Form>
+            <Field name="name" placeholder="Name" />
+            <ErrorMessage name="name" component={"span"} />
+            <Field name="lastname" placeholder="Lastname" />
+            <ErrorMessage name="lastname" component={"span"} />
+            <Field name="phone" placeholder="Phone" />
+            <ErrorMessage name="phone" component={"span"} />
+            <Field name="email" placeholder="Email" />
+            <ErrorMessage name="email" component={"span"} />
+            <Field name="region" as="select">
+              {regions.map((el, index) => {
+                return (
+                  <option
+                    key={index}
+                    value={index === 0 ? "" : el}
+                    hidden={index === 0}
+                  >
+                    {el}
+                  </option>
+                );
+              })}
+            </Field>
+            <ErrorMessage name="region" component={"span"} />
+            <Field name="city" placeholder="City" />
+            <ErrorMessage name="city" component={"span"} />
+            <Field name="address" placeholder="Address" />
+            <ErrorMessage name="address" component={"span"} />
+            <button type="submit">Submit</button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
