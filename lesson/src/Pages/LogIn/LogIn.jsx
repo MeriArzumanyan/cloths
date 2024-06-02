@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+
 export const LogIn = ({ users }) => {
   const validateLogIn = yup.object().shape({
     login: yup.string().required("The field can't be empty"),
@@ -18,7 +19,7 @@ export const LogIn = ({ users }) => {
         "Must include at least one uppercase, number and symbol"
       ),
   });
-  
+
   const navigate = useNavigate();
 
   const authorization = (values) => {
@@ -27,28 +28,34 @@ export const LogIn = ({ users }) => {
     );
     if (userFound) {
       navigate("/profile", { state: userFound });
-    }else{
-        navigate("/registration")
+    } else {
+      navigate("/registration");
     }
   };
   return (
     <div className={st.log}>
-      <Formik
-        initialValues={{
-          login: "",
-          password: "",
-        }}
-        onSubmit={(values) => authorization(values)}
-        validationSchema={validateLogIn}
-      >
-        <Form>
-          <Field name="login" placeholder="Login" />
-          <ErrorMessage name="login" component="span" />
-          <Field name="password" placeholder="Password" />
-          <ErrorMessage name="password" component="span" />
-          <button type="submit">Log In</button>
-        </Form>
-      </Formik>
+      <img
+        src="https://cdn-edge.kwork.ru/pics/t3/50/5413579-1584629550.jpg"
+        alt=""
+      />
+      <div className={st.forFormik}>
+        <Formik
+          initialValues={{
+            login: "",
+            password: "",
+          }}
+          onSubmit={(values) => authorization(values)}
+          validationSchema={validateLogIn}
+        >
+          <Form>
+            <Field name="login" placeholder="Login" />
+            <ErrorMessage name="login" component="span" />
+            <Field name="password" placeholder="Password" />
+            <ErrorMessage name="password" component="span" />
+            <button type="submit">Log In</button>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };

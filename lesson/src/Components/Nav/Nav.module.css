@@ -47,7 +47,7 @@ nav {
   bottom: 15px;
   transform: translate(-50%, -50%);
   border: 1px solid rgb(138, 204, 179);
-  border-radius: 1000%;
+  border-radius: 100%;
 }
 .navPosition span {
   position: absolute;

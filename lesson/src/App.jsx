@@ -68,18 +68,20 @@ function App(props) {
       login: "Ashot",
       password: "Ab123456$",
       role: "admin",
+      gender:"male"
     },
-    { id: 2, name: "Ani", login: "Ani", password: "Ab123456$", role: "user" },
+    { id: 2, name: "Ani", login: "Ani", password: "Ab123456$", role: "user" ,gender:"female"},
     {
       id: 3,
       name: "Davit",
       login: "Davit",
       password: "Ab123456$",
       role: "user",
+      gender:"male"
     },
-    { id: 4, name: "Nare", login: "Nare", password: "Ab123456$", role: "user" },
+    { id: 4, name: "Nare", login: "Nare", password: "Ab123456$", role: "user",gender:"female" },
   ]);
-  console.log(users);
+  
   function changeCount(id, newCount) {
     setAdd((prev) =>
       prev.map((el) => {
@@ -159,10 +161,11 @@ function App(props) {
           <div className="modal">
             <div className="modalContent">
               {orderData.map((el) => {
+                
                 return (
                   <div className="forOrderData">
                     <h1>Name: {el.name}</h1>
-                    <h2>Total: ${total}</h2>
+                    <h2>Total: ${total.toFixed(2)}</h2>
                   </div>
                 );
               })}
@@ -228,7 +231,7 @@ function App(props) {
           <Route path="/registration" element={<Registration createNewUser={createNewUser}/>} />
           <Route path="/login" element={<LogIn users={users} />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/admin" element={<Admin />} />
+          <Route path="/profile/admin" element={<Admin  total={total} positionCount={positionCount}/>} />
         </Route>
       </Routes>
     </div>

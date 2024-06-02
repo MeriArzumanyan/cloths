@@ -1,0 +1,73 @@
+.registration{
+    /* padding-top: 40px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    width: 70%;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: fit-content;
+    margin: auto;
+    margin-top: 80px;
+  }
+
+.registration .forFormik {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 50%;
+    align-items: center;
+    background-color: rgb(198, 235, 228);
+    padding: 40px 0 40px 0;
+    border-radius: 10px;
+  }
+  .forFormik form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 70%;
+  }
+  .registration input {
+    
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: solid 2px rgb(100, 171, 174);
+    background-color: rgb(230, 245, 246);
+  }
+  .registration .checkbox{
+    outline: none;
+    
+    
+  }
+  .registration .first{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .registration .second{
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 10px;
+
+  }
+  .registration input::placeholder {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .registration form button {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(116, 155, 156);
+    color: white;
+    font-size: 18px;
+  }
+  .registration form button:hover {
+    background-color: rgb(117, 143, 144);
+    cursor: pointer;
+  }
+  .registration form span {
+    color: red;
+  }

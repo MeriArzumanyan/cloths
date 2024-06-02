@@ -1,0 +1,29 @@
+.admin {
+  display: flex;
+  column-gap: 40px;
+  padding-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.admin img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.admin h3 {
+    font-size: 40px;
+    background: linear-gradient(338deg, #36a4ab 60%, #ff00d0 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+.admin h4 {
+  font-size: 25px;
+  padding: 40px 0 10px 0;
+}
+.admin h5 {
+  font-size: 20px;
+}
