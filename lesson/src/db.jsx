@@ -1,3 +1,5 @@
+import { useEffect,useState } from "react";
+
 export const data = [
   {
     id: 1,
@@ -309,3 +311,15 @@ export const data = [
 const users=[
   
 ]
+// export function Datas() {
+//   const [data, setData] = useState([]);
+//   const base = "https://fakestoreapi.com/products";
+
+//   useEffect(() => {
+//     fetch(base)
+//       .then(response => response.json())
+//       .then(result => setData(result));
+//   }, []);
+
+//   return data;
+// }

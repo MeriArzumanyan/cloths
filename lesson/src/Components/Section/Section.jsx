@@ -8,7 +8,7 @@ export const Section = (props) => {
         {props.data.map((el) => {
           return <Products data={el} key={el.id} addToCard={props.addToCard} increaseCount={props.increaseCount} positionCount={props.positionCount} />;
         })}
-      </div>
+       </div>
     </section>
   );
 };

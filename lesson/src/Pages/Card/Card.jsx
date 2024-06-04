@@ -58,12 +58,14 @@ export const Card = ({
                     </button>
                   </div>
 
-                  <p>Unit Price: $ {el.price}</p>
-                  <p className={st.total}>Total: $ {el.initPrice.toFixed(2)}</p>
+                  <p>Unit Price: $ {+el.price}</p>
+                  <p className={st.total}>
+                    Total: $ {+el.initPrice.toFixed(2)}
+                  </p>
                 </div>
               </div>
             ))}
-            <h6>Total price: ${total.toFixed(2)}</h6>
+            <h6>Total price: ${+total.toFixed(2)}</h6>
           </div>
           {
             <div className={st.forInputs}>

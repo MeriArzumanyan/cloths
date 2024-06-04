@@ -10,6 +10,7 @@ export const Products = (props) => {
   function addItem(item) {
     props.addToCard(item);
     props.increaseCount();
+   
   }
   return (
     <div className={st.products} key={props.data.id}>

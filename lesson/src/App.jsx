@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Section } from "./Components/Section/Section";
@@ -11,7 +11,27 @@ import { Registration } from "./Pages/Registration/Registration";
 import { LogIn } from "./Pages/LogIn/LogIn";
 import { Profile } from "./Pages/Profile/Profile";
 import { Admin } from "./Pages/Admin/Admin";
-function App(props) {
+function App() {
+ 
+    const [data, setData] = useState([]);
+    const base = "https://fakestoreapi.com/products";
+  
+    useEffect(() => {
+      fetch(base)
+        .then(response => response.json())
+        .then(result => setData(result));
+    }, []);
+   function clone() {
+      setData((prev) => {
+        return prev.map((item) => ({
+          ...item,
+          count: 1,
+          initPrice: item.price,
+        }));
+      });
+    }
+    
+ 
   const [add, setAdd] = useState([]);
   ///////////for adding items to cart//////////////
   function addToCard(item) {
@@ -165,7 +185,7 @@ function App(props) {
                 return (
                   <div className="forOrderData">
                     <h1>Name: {el.name}</h1>
-                    <h2>Total: ${total.toFixed(2)}</h2>
+                    <h2>Total: ${+total.toFixed(2)}</h2>
                   </div>
                 );
               })}
@@ -190,11 +210,12 @@ function App(props) {
             path="/products"
             element={
               <Section
-                data={props.data}
+                data={data}
                 addToCard={addToCard}
                 add={add}
                 increaseCount={increaseCount}
                 positionCount={positionCount}
+             
               />
             }
           />
@@ -202,7 +223,7 @@ function App(props) {
             path="/products/:id"
             element={
               <Product
-                data={props.data}
+                data={data}
                 add={add}
                 addToCard={addToCard}
                 increaseCount={increaseCount}
